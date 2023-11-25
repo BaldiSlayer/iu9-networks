@@ -1,0 +1,6 @@
+github.com/Baldislayer/iu9-networks v0.0.0-20231124183236-aea7668f71c1 h1:ZMtE7rvUELt6ER4vBtmDrrlPIeL1nhKWvSZWnwcHxJA=
+github.com/Baldislayer/iu9-networks v0.0.0-20231124183236-aea7668f71c1/go.mod h1:u5Yjyby8wxWHxsxvk0XsuReJmQwIYITHP8YZbNb31PQ=
+github.com/gorilla/websocket v1.5.1 h1:gmztn0JnHVt9JZquRuzLw3g4wouNVzKL15iLr/zn/QY=
+github.com/gorilla/websocket v1.5.1/go.mod h1:x3kM2JMyaluk02fnUJpQuwD2dCS5NDG2ZHL0uE0tcaY=
+golang.org/x/net v0.17.0 h1:pVaXccu2ozPjCXewfr1S7xza/zcXTity9cCdXQYSjIM=
+golang.org/x/net v0.17.0/go.mod h1:NxSsAGuq816PNPmqtQdLE42eU2Fs7NoRIZrHJAlaCOE=

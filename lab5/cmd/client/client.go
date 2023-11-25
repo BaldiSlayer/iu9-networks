@@ -2,13 +2,16 @@ package main
 
 import (
 	"encoding/json"
+	"github.com/Baldislayer/iu9-networks/lab5/models"
 	"github.com/gorilla/websocket"
 	"log"
 )
 
+const path = "ws://localhost:8080/ws"
+
 func main() {
 	// поключаемся к серверу посредством вебсокета
-	conn, _, err := websocket.DefaultDialer.Dial("ws://localhost:8080/ws", nil)
+	conn, _, err := websocket.DefaultDialer.Dial(path, nil)
 	if err != nil {
 		log.Fatal("Error connecting to WebSocket server:", err)
 	}
