@@ -98,7 +98,7 @@ func getAbout(w http.ResponseWriter, r *http.Request) {
 </head>
 <body>
 	<h1>Привет, это лаба Алексея Лисова.</h1>
-	<img src="/static/me.png" alt="Image Alt Text">
+	<img src="/static/me.jpg" alt="Image Alt Text">
 </body>
 </html>`
 
@@ -140,10 +140,10 @@ func main() {
 	http.HandleFunc("/about", getAbout)
 	http.HandleFunc("/test", testHandler)
 
-	fs := http.FileServer(http.Dir("../static/"))
+	fs := http.FileServer(http.Dir("~/GolandProjects/iu9-networks/lab0/static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	err := http.ListenAndServe(":3384", nil)
+	err := http.ListenAndServe(":4081", nil)
 	if errors.Is(err, http.ErrServerClosed) {
 		fmt.Printf("server closed\n")
 	} else if err != nil {

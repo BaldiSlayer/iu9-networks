@@ -1,0 +1,17 @@
+{
+  "A": {
+    "Address": "127.0.0.1",
+    "Port": "8080",
+    "HtmlServerPort": "8081"
+  },
+  "B": {
+    "Address": "127.0.0.1",
+    "Port": "8082",
+    "HtmlServerPort": "8083"
+  },
+  "C": {
+    "Address": "127.0.0.1",
+    "Port": "8084",
+    "HtmlServerPort": "8085"
+  }
+}

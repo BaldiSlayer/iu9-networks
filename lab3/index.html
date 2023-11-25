@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{.NodeName}}</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+Welcome to Node <b>{{.NodeName}}</b>
+<canvas id="drawingCanvas" width="400" height="400"></canvas>
+
+<!-- Добавляем поля ввода и кнопку -->
+<div>
+    <label for="x1">x1:</label>
+    <input type="number" id="x1" />
+    <label for="y1">y1:</label>
+    <input type="number" id="y1" />
+    <label for="x2">x2:</label>
+    <input type="number" id="x2" />
+    <label for="y2">y2:</label>
+    <input type="number" id="y2" />
+    <button id="drawButton">Нарисовать</button>
+</div>
+
+<script>
+    const socket = new WebSocket('ws://' + window.location.host + '/ws/' + '{{.NodeName}}');
+    const canvas = document.getElementById('drawingCanvas');
+    const context = canvas.getContext('2d');
+
+    socket.addEventListener('open', (event) => {
+        console.log('Веб-сокет открыт.');
+    });
+
+    socket.addEventListener('message', (event) => {
+        console.log(1);
+        const data = JSON.parse(event.data);
+        context.beginPath();
+        context.moveTo(data.startX, data.startY);
+        context.lineTo(data.endX, data.endY);
+        context.stroke();
+    });
+
+    socket.addEventListener('error', (event) => {
+        console.error('Произошла ошибка веб-сокета:', event);
+    });
+
+    socket.addEventListener('close', (event) => {
+        if (event.wasClean) {
+            console.log('Веб-сокет закрыт чисто, код: ' + event.code);
+        } else {
+            console.error('Веб-сокет закрыт по ошибке');
+        }
+    });
+
+    // Добавляем обработчик кнопки "Нарисовать"
+    const drawButton = document.getElementById('drawButton');
+    drawButton.addEventListener('click', () => {
+        const x1 = parseFloat(document.getElementById('x1').value);
+        const y1 = parseFloat(document.getElementById('y1').value);
+        const x2 = parseFloat(document.getElementById('x2').value);
+        const y2 = parseFloat(document.getElementById('y2').value);
+
+        if (!isNaN(x1) && !isNaN(y1) && !isNaN(x2) && !isNaN(y2)) {
+            const message = {
+                startX: x1,
+                startY: y1,
+                endX: x2,
+                endY: y2
+            };
+
+            // Отправляем сообщение через веб-сокет
+            socket.send(JSON.stringify(message));
+        } else {
+            alert('Пожалуйста, введите корректные числовые значения для координат.');
+        }
+    });
+</script>
+</body>
+</html>
