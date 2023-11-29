@@ -40,12 +40,14 @@ func main() {
 		HostKeyCallback: ssh.InsecureIgnoreHostKey(), // for the demo only, use proper host key verification in production
 	}
 
-	client, err := ssh.Dial("tcp", Ip+":"+"3137", config)
+	client, err := ssh.Dial("tcp", Ip+":"+"3136", config)
 	if err != nil {
 		log.Fatal("Failed to dial: ", err)
 	}
 	defer client.Close()
 
-	// RunCmd(client, "mkdir lifdspov && ls -a")
-	// RunCmd(client, "ls -a")
+	// RunCmd(client, "ping ya.ru")
+	RunCmd(client, "ls -a")
+	RunCmd(client, "mkdir lifdspov")
+	RunCmd(client, "ls -a")
 }
