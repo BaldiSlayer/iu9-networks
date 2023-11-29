@@ -111,7 +111,7 @@ func (p *Peer) handleConnection(conn net.Conn) {
 // SendMessage - посылка сообщения всем соседям
 func (p *Peer) SendMessage(message models.Line) {
 	for _, neighbor := range p.Neighbors {
-		conn, err := net.Dial("tcp", ":"+neighbor.Port)
+		conn, err := net.Dial("tcp", neighbor.Address+":"+neighbor.Port)
 		if err != nil {
 			fmt.Println(err)
 			return
