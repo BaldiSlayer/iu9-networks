@@ -8,4 +8,4 @@ WORKDIR /
 COPY . .
 
 # Запускаем сервер
-CMD ["go", "run", "cmd/main.go", "--name", "${NAME}"]
+CMD ["go", "run", "cmd/main.go"]

@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"flag"
 	"fmt"
 	"io/ioutil"
 	"iu9-networks/lab3/models"
@@ -47,12 +46,9 @@ func getDataForStart(nodeName string) (peer.Peer, error) {
 }
 
 func main() {
+	name := os.Getenv("NAME")
 
-	name := flag.String("name", "", "Node name")
-
-	flag.Parse()
-
-	peer, err := getDataForStart(*name)
+	peer, err := getDataForStart(name)
 	if err != nil {
 		fmt.Println(err)
 		return
