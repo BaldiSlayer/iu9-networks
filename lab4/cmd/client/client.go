@@ -10,7 +10,7 @@ import (
 var (
 	Login    = ""
 	Password = "123"
-	Ip       = "127.0.0.1"
+	Ip       = "185.139.70.64"
 	Port     = 31337
 )
 
@@ -40,11 +40,12 @@ func main() {
 		HostKeyCallback: ssh.InsecureIgnoreHostKey(), // for the demo only, use proper host key verification in production
 	}
 
-	client, err := ssh.Dial("tcp", "localhost:31337", config)
+	client, err := ssh.Dial("tcp", Ip+":"+"3137", config)
 	if err != nil {
 		log.Fatal("Failed to dial: ", err)
 	}
 	defer client.Close()
 
-	RunCmd(client, "ping yandex.ru")
+	// RunCmd(client, "mkdir lifdspov && ls -a")
+	// RunCmd(client, "ls -a")
 }
