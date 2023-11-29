@@ -8,7 +8,11 @@ import (
 	"log"
 )
 
-const path = "ws://localhost" + configs.Port + "/ws"
+const (
+	host = "185.139.70.64"
+)
+
+const path = "ws://" + host + configs.Port + "/ws"
 
 func main() {
 	// поключаемся к серверу посредством вебсокета

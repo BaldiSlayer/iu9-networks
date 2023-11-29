@@ -11,7 +11,7 @@ import (
 )
 
 func getDataForStart(nodeName string) (peer.Peer, error) {
-	file, err := os.Open("../a.json")
+	file, err := os.Open("a.json")
 	if err != nil {
 		fmt.Println(err)
 		return peer.Peer{}, err
