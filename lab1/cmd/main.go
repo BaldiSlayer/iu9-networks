@@ -94,11 +94,11 @@ func getAbout(w http.ResponseWriter, r *http.Request) {
 	// Создаем HTML шаблон с изображением
 	tmpl := `<html>
 <head>
-	<title>About</title>
+  <title>About</title>
 </head>
 <body>
-	<h1>Привет, это лаба Алексея Лисова.</h1>
-	<img src="/static/me.png" alt="Image Alt Text">
+  <h1>Привет, это лаба Алексея Лисова.</h1>
+  <img src="/static/me.jpg" alt="Image Alt Text">
 </body>
 </html>`
 
@@ -140,14 +140,15 @@ func main() {
 	http.HandleFunc("/about", getAbout)
 	http.HandleFunc("/test", testHandler)
 
-	fs := http.FileServer(http.Dir("../static"))
+	// Устанавливаем обработчик для статических файлов в каталоге "static"
+	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	err := http.ListenAndServe(":4081", nil)
+	err := http.ListenAndServe(":3333", nil)
 	if errors.Is(err, http.ErrServerClosed) {
-		fmt.Printf("server_2 closed\n")
+		fmt.Printf("server closed\n")
 	} else if err != nil {
-		fmt.Printf("error starting server_2: %s\n", err)
+		fmt.Printf("error starting server: %s\n", err)
 		os.Exit(1)
 	}
 }

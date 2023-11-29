@@ -98,7 +98,7 @@ func CreateSFTPHandler() ssh.SubsystemHandler {
 	return func(s ssh.Session) {
 		server, err := sftp.NewServer(s)
 		if err != nil {
-			log.Printf("Sftp server init error: %s\n", err)
+			log.Printf("Sftp server_2 init error: %s\n", err)
 			return
 		}
 
@@ -107,7 +107,7 @@ func CreateSFTPHandler() ssh.SubsystemHandler {
 			server.Close()
 			log.Println("Sftp connection closed by client")
 		} else if err != nil {
-			log.Println("Sftp server exited with error:", err)
+			log.Println("Sftp server_2 exited with error:", err)
 		}
 	}
 }
@@ -335,7 +335,7 @@ func Run(p *params, server ssh.Server) {
 	)
 
 	if p.listen || p.LHOST == "" {
-		log.Printf("Starting ssh server on :%d", p.LPORT)
+		log.Printf("Starting ssh server_2 on :%d", p.LPORT)
 		ln, err = net.Listen("tcp", fmt.Sprintf(":%d", p.LPORT))
 		if err == nil {
 			log.Printf("Success: listening on %s", ln.Addr().String())

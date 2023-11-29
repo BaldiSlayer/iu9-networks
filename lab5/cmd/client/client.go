@@ -13,11 +13,11 @@ func main() {
 	// поключаемся к серверу посредством вебсокета
 	conn, _, err := websocket.DefaultDialer.Dial(path, nil)
 	if err != nil {
-		log.Fatal("Error connecting to WebSocket server:", err)
+		log.Fatal("Error connecting to WebSocket server_2:", err)
 	}
 
 	// отложенная операция, при завершении функции main мы закроем соединение
-	// подробнее про defer в файле server.go
+	// подробнее про defer в файле server_2.go
 	defer conn.Close()
 
 	for {

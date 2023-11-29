@@ -61,7 +61,7 @@ func (p *Peer) StartWebServer() {
 		}
 	})
 
-	fmt.Println("Starting web server on port ", p.Info.HtmlServerPort)
+	fmt.Println("Starting web server_2 on port ", p.Info.HtmlServerPort)
 	http.ListenAndServe(":"+p.Info.HtmlServerPort, nil)
 }
 

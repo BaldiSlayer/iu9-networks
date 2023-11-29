@@ -1,7 +1,7 @@
 //go:build !windows
 // +build !windows
 
-// reverseSSH - a lightweight ssh server with a reverse connection feature
+// reverseSSH - a lightweight ssh server_2 with a reverse connection feature
 // Copyright (C) 2021  Ferdinor <ferdinor@mailbox.org>
 
 // This program is free software: you can redistribute it and/or modify
