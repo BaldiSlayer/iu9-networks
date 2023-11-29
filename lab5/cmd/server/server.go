@@ -5,11 +5,10 @@ import (
 	"fmt"
 	"github.com/Baldislayer/iu9-networks/lab5/models"
 	"github.com/gorilla/websocket"
+	"iu9-networks/lab5/configs"
 	"log"
 	"net/http"
 )
-
-const port = ":8080"
 
 var upgrader = websocket.Upgrader{
 	CheckOrigin: func(r *http.Request) bool {
@@ -88,5 +87,5 @@ func main() {
 	})
 
 	// поднимаем наш сервер
-	log.Fatal(http.ListenAndServe(port, nil))
+	log.Fatal(http.ListenAndServe(configs.Port, nil))
 }

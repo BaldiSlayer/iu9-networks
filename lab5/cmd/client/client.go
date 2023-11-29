@@ -4,10 +4,11 @@ import (
 	"encoding/json"
 	"github.com/Baldislayer/iu9-networks/lab5/models"
 	"github.com/gorilla/websocket"
+	"iu9-networks/lab5/configs"
 	"log"
 )
 
-const path = "ws://localhost:8080/ws"
+const path = "ws://localhost" + configs.Port + "/ws"
 
 func main() {
 	// поключаемся к серверу посредством вебсокета
