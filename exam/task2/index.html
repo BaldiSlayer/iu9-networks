@@ -12,10 +12,17 @@
     <div id="response"></div>
 
     <script>
-        const ws = new WebSocket("ws://localhost:8798/ws");
+        const ws = new WebSocket("ws://185.104.249.105:8798/ws");
 
         ws.onmessage = function(event) {
-            document.getElementById('response').textContent = event.data;
+            let data = event.data;
+            let utf8Bytes = new TextEncoder().encode(data);
+            let utf8String = new TextDecoder().decode(utf8Bytes);
+            let jsonData = JSON.parse(utf8String);
+
+            console.log(jsonData)
+            document.getElementById('response').textContent = JSON.stringify(jsonData, null, 2);
+            //alert(1)
         };
 
         function sendUrl() {

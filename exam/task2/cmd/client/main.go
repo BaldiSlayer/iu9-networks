@@ -44,7 +44,7 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 	//}
 
 	fmt.Println(1)
-	tcp_conn, err := net.Dial("tcp", "localhost:8888")
+	tcp_conn, err := net.Dial("tcp", "185.255.133.113:8888")
 	if err != nil {
 		fmt.Println("Ошибка соединения с сервером:", err)
 		return
