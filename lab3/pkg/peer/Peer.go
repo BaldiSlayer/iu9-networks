@@ -27,7 +27,7 @@ var tpl *template.Template
 
 // StartWebServer - метод "поднятия" веб сервера, отвечающего за интерфейс
 func (p *Peer) StartWebServer() {
-	tpl, _ = template.ParseFiles("index.html")
+	tpl, _ = template.ParseFiles("index.html.html")
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		tpl.Execute(w, struct{ NodeName string }{NodeName: p.Name})
